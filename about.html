@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="about.css" />
+    <title>VelvetVignettes</title>
+  </head>
+
+  <body>
+    <div class="nav-searchbar">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" placeholder="search" class="searching">
+      <button class="small-write">write</button>
+      <i class="fa-solid fa-pen-to-square icon"></i>
+    </div>
+    <header>
+      <nav>
+        <div class="navbar">
+          <div class="sitename">VelvetVignettes</div>
+          <div class="nav-pages">
+            <ul>
+              <a href="./index.html">
+                <li>Home</li>
+              </a>
+              <a href="./about.html">
+                <li>Blogs</li>
+              </a>
+            </ul>
+          </div>
+          <div class="nav-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input class="searchbar" type="text" placeholder="Search Blog" />
+          </div>
+          <div class="write">
+            <button class="write-blog" onclick="writesection()">Write</button>
+            <i class="fa-solid fa-pen-to-square icon"></i>
+          </div>
+          <div class="noti-bell">
+            <i class="fa-solid fa-bell"></i>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <article class="post">
+      <div>
+        <div
+          class="absolute-bg"
+          style="
+            background-image: url('https://source.unsplash.com/f9C8ytxaItI/2000x1200');
+          "></div>
+      </div>
+      <div class="post__container">
+        <span class="post__category">Michelle's Travels</span>
+
+        <div class="post__content">
+          <header>
+            <time class="post__time">Jan 22 2017</time>
+            <h1 class="post__header">
+              <span>Visiting</span> <span>the</span> <span>beach</span>
+            </h1>
+          </header>
+
+          <p class="post__text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a
+            augue justo. In mollis erat in elit tempus, feugiat luctus ex
+            sollicitudin. Maecenas euismod tortor dolor, vel blandit augue
+            aliquam sit amet. Vestibulum et eros mollis, laoreet nisi ac,
+            condimentum sapien. Aliquam nec nunc enim.
+          </p>
+        </div>
+        <div class="post__link">
+          <a href="#">Older Posts</a>
+        </div>
+      </div>
+    </article>
+    <div class="below-bar">
+      <div class="icons-all">
+        <i class="fa-solid fa-house house"></i>
+        <i class="fa-solid fa-magnifying-glass icon-search"></i>
+        <i class="fa-regular fa-bookmark bookmark"></i>
+        <i class="fa-solid fa-user user"></i>
+        <i class="fa-solid fa-bell notification"></i>
+      </div>
+    </div>
+
+    <script>
+      const belowBar = document.getElementById("below-bar");
+      const home = document.querySelector(".house");
+      const account = document.querySelector(".user");
+      const searchbar = document.querySelector(".icon-search");
+      const iconsAll = document.querySelector(".icons-all");
+      const smallWriteButton = document.querySelector(".small-write");
+
+      const moveIconsOnResize = () => {
+        if (window.innerWidth < 700) {
+          navbar.style.flexDirection = "column-reverse";
+          iconsAll.style.display = "flex";
+          iconsAll.style.justifyContent = "space-around";
+          iconsAll.style.width = "100%";
+          iconsAll.style.backgroundColor = "#333";
+          iconsAll.style.position = "fixed";
+          iconsAll.style.bottom = "0";
+          iconsAll.style.padding = "10px 0";
+          iconsAll.style.zIndex = "1000";
+
+          // Set below bar as fixed
+          belowBar.style.position = "fixed";
+          belowBar.style.bottom = "0";
+          belowBar.style.width = "100%";
+
+          // Show the search bar and small write button
+          document.querySelector(".nav-searchbar").style.display = "flex";
+          smallWriteButton.style.display = "block";
+        } else {
+          navbar.style.flexDirection = "row";
+          iconsAll.style.display = "none";
+
+          // Reset below bar styles
+          // belowBar.style.position = "none";
+
+          // Hide the search bar and small write button
+          document.querySelector(".nav-searchbar").style.display = "none";
+          smallWriteButton.style.display = "none";
+        }
+      };
+
+      // Add the missing reference for 'navbar'
+      const navbar = document.querySelector(".navbar");
+
+      home.addEventListener("click", (event) => {
+        event.preventDefault();
+        window.location.href = "index.html";
+      });
+
+      account.addEventListener("click", (event) => {
+        event.preventDefault();
+        window.location.href = "account.html";
+      });
+
+      searchbar.addEventListener("click", (event) => {
+        event.preventDefault();
+        window.location.href = "about.html";
+      });
+
+      document.querySelector('.small-write').addEventListener('click',(event)=>{
+        event.preventDefault();
+        window.location.href = "write.html";
+      })
+
+      // Initial setup
+      moveIconsOnResize();
+
+      // Listen for window resize events
+      window.addEventListener("resize", moveIconsOnResize);
+    </script>
+  </body>
+</html>

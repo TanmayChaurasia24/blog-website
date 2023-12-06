@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.navbar{
+    background-color: rgb(207, 222, 222);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+}
+.logo{
+    font-size: 1.2em;
+    font-weight: bold;
+    background-image: linear-gradient(
+      to right,
+      #061a27,
+      #e74c3c,
+      rgb(128, 0, 117)
+    ); /* Set your gradient colors here */
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    margin-left: 100px;
+}
+.publish{
+    margin-right: 100px;
+    padding: 8px;
+    border: 2px solid transparent;
+    border-radius: 18px;
+    font-weight: 700;
+    background-color: rgb(157, 63, 149);
+    color: antiquewhite;
+}
+.publish:hover{
+    background-color: rgb(216, 158, 82);
+    color: rgb(22, 9, 9);
+}
+@media(max-width:450px)
+{
+    .publish{
+        margin-left: 100px;
+    }
+}
